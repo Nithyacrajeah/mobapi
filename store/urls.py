@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from mobapi import views as apiview
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("api/v1/teq/mobiles",apiview.MobileView.as_view()),
+    path("api/v1/teq/mobiles/<int:id>",apiview.MobileDetailView.as_view())
+
 ]
